@@ -1,0 +1,27 @@
+{
+  "name": "DrawIt",
+  "version": "1.0.0",
+  "description": "Simple chat app and draw it",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "William Higgs",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "nodemon": "^1.14.3",
+    "npm": "6.3.0",
+    "socket.io": "^2.0.4"
+  }
+}

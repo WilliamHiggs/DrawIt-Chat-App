@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>DrawIt</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>DrawIt</h1>
+    </header>
+
+    <section>
+      <div id="change_username">
+	      <h4 id="username" type="text"></h4>
+	      <button id="send_username" type="button">Change username</button>
+      </div>
+    </section>
+
+    <section id="chatroom">
+      <section id="feedback"></section>
+    </section>
+
+    <section id="input_zone">
+      <input id="message" class="vertical-align" type="text" />
+      <button id="send_message" class="vertical-align " type="button">Send</button>
+      <!-- Trigger/Open The Modal -->
+      <button id="modalBtn">Draw!</button>
+      <!-- The Modal -->
+      <div id="openCanvas" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+        <!-- Modal Header -->
+          <div class="modal-header">
+            <span id="closeCanvas" class="close">&times;</span>
+            <h2>DrawIt</h2>
+            <h3>Random Generator</h3>
+            </div>
+            <!-- body of modal -->
+              <div class="modal-body" id="modalBody">
+                <!-- drawing controls -->
+                <div class="controls">
+                  <button id="clear-area" class="btn">Clear Area</button>
+                  <button id="send-img" class="btn">Send</button>
+                  <input type="color" id="penColor" value="color" />
+                  <input type="range" min="2" max="50" id="penWidth" value="5"/>
+                </div>
+              <!-- canvas -->
+              <div id="canvas-div">
+                <canvas id="myCanvas" width="500" height="350"></canvas>
+             </div>
+           </div>
+           <!-- modal footer -->
+           <div class="modal-footer">
+             <h3>click and drag to draw</h3>
+           </div>
+         </div>
+       </div>
+    </section>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="chat.js"></script>
+    <script type="text/javascript" src="./modal.js"></script>
+  </body>
+</html>

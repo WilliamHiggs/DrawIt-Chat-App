@@ -1,0 +1,341 @@
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+  padding: 1px;
+  margin: 0px;
+  height: 100%;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+div#change_username, section#input_zone {
+  border: 3px solid #CA3400;
+}
+
+div#change_username {
+  background-color: #CA3400;
+}
+
+section#chatroom {
+  border: 3px solid #CA3435;
+  height: 75%;
+  overflow: auto;
+}
+
+section#input_zone {
+  height: 7%;
+  text-align: center;
+  background-color: #CA3435;
+}
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+h4#username {
+  font-family: "Roboto", sans-serif;
+  font-size: 2vh;
+}
+
+input#message {
+  display: inline-block;
+  width: 78%;
+  height: 75%;
+  font-family: "Roboto", sans-serif;
+  font-size: 2vh;
+}
+
+button#send_message {
+  display: inline-block;
+  height: 75%;
+  width: 10%;
+}
+
+button#modalBtn {
+  display: inline-block;
+  height: 75%;
+  width: 10%;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+p.message {
+  margin: 0px;
+  width: 100%;
+  height: 40px;
+  font-size: 2vh;
+  font-family: "Roboto", sans-serif;
+  padding: 1vh;
+}
+
+.message:nth-child(even) {
+  background-color: #ffebcd;
+}
+
+.message:nth-child(odd) {
+  background-color: #ffebde;
+}
+
+img.image {
+  margin: 0px;
+  width: 200px;
+  height: 200px;
+  font-size: 2vh;
+  font-family: "Roboto", sans-serif;
+  padding: 1vh;
+}
+
+.image:nth-child(even) {
+  background-color: #FFF;
+}
+
+.image:nth-child(odd) {
+  background-color: #FFF;
+}
+
+/* The Canvas */
+
+canvas {
+  position: block;
+  display: inline;
+  background-color:#FFF;
+  border: 2px solid black;
+  cursor: crosshair;
+}
+
+#canvas-div {
+  position: block;
+  text-align: center;
+  padding:2px;
+  margin:2px;
+
+}
+
+.btn {
+  background-color: #CA3435;
+  padding: 5px 9px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.controls {
+  position: block;
+  background-color: #ffebcd;
+  padding:5px;
+  margin:2px;
+  color: black;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.controls input {
+  cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #50555C;
+  background: #D6D6D6;
+  border-radius: 50px;
+  border: 1px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #CA3435;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #D6D6D6;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #50555C;
+  background: #D6D6D6;
+  border-radius: 50px;
+  border: 1px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #CA3435;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #D6D6D6;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  box-shadow: 0px 0px 0px #50555C;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #D6D6D6;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  box-shadow: 0px 0px 0px #50555C;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #CA3435;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #D6D6D6;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #D6D6D6;
+}
+
+input[type="color"] {
+  background: #D6D6D6;
+  border: 1px solid #000000;
+  border-radius: 3px;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 8px;
+  background-color: #CA3435;
+  color: white;
+}
+
+.modal-body {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-footer {
+  padding: 2px 8px;
+  background-color: #CA3435;
+  color: white;
+}
