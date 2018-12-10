@@ -38,7 +38,8 @@ io.on("connection", (socket) => {
   })
 
 	socket.on("new_image", (data) => {
-			io.sockets.emit("new_image", {message: data.message, username: socket.username, score: socket.score, image: socket.image, source: data.source});
+		//socket.score++; this is how we'd increase score in the future
+		io.sockets.emit("new_image", {message: data.message, username: socket.username, score: socket.score, image: socket.image, source: data.source});
 	})
 
   socket.on("typing", (data) => {

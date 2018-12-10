@@ -11,6 +11,16 @@ $(function() {
 	var chatroom = $("#chatroom");
 	var feedback = $("#feedback");
 
+  // Added autoscroll to bottom
+  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+  var observer = new MutationObserver(scrollToBottom);
+  var config = {childList: true, subtree: true, attributes: true};
+  observer.observe(chatroom[0], config);
+
+  function scrollToBottom(element) {
+    element.scrollTop = element.scrollHeight;
+  }
+
 	//Emit message
 	send_message.click(() => {
     socket.emit("new_message", {message : message.val()});
@@ -26,6 +36,7 @@ $(function() {
       chatroom.append(
         "<p class='message'>" + data.score + "★ " + data.username + ": " + data.message + "</p>"
       );
+      scrollToBottom(chatroom[0]);
     }
 	});
 
@@ -37,6 +48,7 @@ $(function() {
         "<div>" + data.score + "★ " + data.username + ": " +
         "<br><img class='image' alt='Embedded Image' src='"+ data.source +"'></img></div>"
       );
+      scrollToBottom(chatroom[0]);
     }
   });
 	//Emit a username
