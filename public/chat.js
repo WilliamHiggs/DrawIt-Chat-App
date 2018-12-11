@@ -77,6 +77,10 @@ $(function() {
     username.html("<h4 id='username'>" + data.score + "★ " + data.username + "</h4>");
   });
 
+  socket.on("user_disconnect", data => {
+    feedback.html("<p><i>" + data.username + " left the chat" + "</i></p>");
+  });
+
     // buttons and inputs for drawing modal
   var modalBtn = document.getElementById("modalBtn");
   var closeModal = document.getElementById("closeCanvas");
