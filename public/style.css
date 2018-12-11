@@ -114,14 +114,6 @@ img.image {
   padding: 1vh;
 }
 
-.image:nth-child(even) {
-  background-color: #FFF;
-}
-
-.image:nth-child(odd) {
-  background-color: #FFF;
-}
-
 /* The Canvas */
 
 canvas {

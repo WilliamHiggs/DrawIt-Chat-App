@@ -1,19 +1,19 @@
-### Chatting and Drawing with Socket.io
+## Chatting and Drawing with Socket.io
 -----
-## Features so far:
-- chatting
+### Features I've implemented so far:
+- chatting -> added autoscroll and 'enter' button message sends
 - drawing
 - typing response
 - random username button
 
-## Features to come:
+### Features I'd like to build:
 - picture rating
 - list of users in room
 - emojis
 - "enter" key press to send
 -----
 
-## Technology:
+### Tools:
 - NodeJS
 - EJS
 - ExpressJS

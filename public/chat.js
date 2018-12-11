@@ -26,6 +26,12 @@ $(function() {
     socket.emit("new_message", {message : message.val()});
 	});
 
+  $(document).keypress(event => {
+    if (event.which == 13) {
+        send_message.click();
+    }
+  });
+
 	//Listen on new_message
 	socket.on("new_message", data => {
     if (data.message.trim() == "") {
@@ -70,7 +76,6 @@ $(function() {
   socket.on("amend_username", data => {
     username.html("<h4 id='username'>" + data.score + "★ " + data.username + "</h4>");
   });
-
 
     // buttons and inputs for drawing modal
   var modalBtn = document.getElementById("modalBtn");
