@@ -1,9 +1,8 @@
 
 $(function() {
-   //make connection
+
 	var socket = io.connect("http://localhost:3000");
 
-	//jQuery buttons and inputs
 	var message = $("#message");
 	var username = $("#username");
 	var send_message = $("#send_message");
@@ -28,7 +27,7 @@ $(function() {
 
   $(document).keypress(event => {
     if (event.which == 13) {
-        send_message.click();
+      send_message.click();
     }
   });
 
@@ -57,6 +56,7 @@ $(function() {
       scrollToBottom(chatroom[0]);
     }
   });
+
 	//Emit a username
 	send_username.click(() => {
     socket.emit("amend_username", {username: username.val()});
@@ -70,7 +70,11 @@ $(function() {
 
 	//Listen on typing
 	socket.on("typing", data => {
-		feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>");
+		feedback.html("<p class='show'><i>" + data.username + " is typing a message..." + "</i></p>");
+    console.log(feedback.html);
+    setTimeout(() => {
+      feedback.html("");
+    }, 3000);
 	});
 
   socket.on("amend_username", data => {
@@ -78,10 +82,13 @@ $(function() {
   });
 
   socket.on("user_disconnect", data => {
-    feedback.html("<p><i>" + data.username + " left the chat" + "</i></p>");
+    feedback.html("<p class='show'><i>" + data.username + " left the chat" + "</i></p>");
+    setTimeout(() => {
+      feedback.html("");
+    }, 3000);
   });
 
-    // buttons and inputs for drawing modal
+  // buttons and inputs for drawing modal
   var modalBtn = document.getElementById("modalBtn");
   var closeModal = document.getElementById("closeCanvas");
   var modal = document.getElementById("openCanvas");
@@ -142,11 +149,7 @@ $(function() {
   });
 
   send.addEventListener("click", function(event) {
-    /*
-      The dataUrl will provide the image resource from canvas
-      will need to close the canvas element/modal
-      will need to send the image via the socket.io chat.
-    */
+
     let dataUrl = canvas.toDataURL();
     socket.emit("new_image", {source: dataUrl});
 
