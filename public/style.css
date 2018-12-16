@@ -9,6 +9,7 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  word-wrap: break-word;
 }
 
 html {
@@ -30,12 +31,36 @@ h1 {
   margin: 0px;
 }
 
+button:active {
+  outline-color: white;
+}
+
+button:focus {
+  outline-color: white;
+}
+
+input:active {
+  outline-color: white;
+}
+
+input:focus {
+  outline-color: white;
+}
+
 div#change_username, section#input_zone {
   border: 3px solid #CA3400;
 }
 
 div#change_username {
   background-color: #CA3400;
+}
+
+button#send_username {
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 section#chatroom {
@@ -45,9 +70,10 @@ section#chatroom {
 }
 
 section#input_zone {
-  height: 7%;
+  height: 9%;
   text-align: center;
   background-color: #CA3435;
+  overflow: scroll;
 }
 
 .vertical-align {
@@ -69,6 +95,8 @@ input#message {
   height: 75%;
   font-family: "Roboto", sans-serif;
   font-size: 2vh;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 button#send_message {
@@ -78,6 +106,8 @@ button#send_message {
   width: 10%;
   position: relative;
   top: 50%;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -90,6 +120,8 @@ button#modalBtn {
   width: 10%;
   position: relative;
   top: 50%;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -98,7 +130,7 @@ button#modalBtn {
 p.message {
   margin: 0px;
   width: 100%;
-  height: 40px;
+  height: auto;
   font-size: 2vh;
   font-family: "Roboto", sans-serif;
   padding: 1vh;
@@ -124,7 +156,6 @@ img.image {
 section#feedback {
   min-width: 250px;
   margin-left: -125px;
-  background-color: #fff;
   color: #333;
   text-align: center;
   border-radius: 2px;
@@ -326,7 +357,7 @@ input[type="color"] {
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -334,7 +365,6 @@ input[type="color"] {
   animation-duration: 0.4s
 }
 
-/* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
@@ -345,7 +375,6 @@ input[type="color"] {
   to {top:0; opacity:1}
 }
 
-/* The Close Button */
 .close {
   color: white;
   float: right;

@@ -22,7 +22,7 @@ $(function() {
 
 	//Emit message
 	send_message.click(() => {
-    socket.emit("new_message", {message : message.val()});
+    socket.emit("new_message", {message: message.val()});
 	});
 
   $(document).keypress(event => {
@@ -71,7 +71,6 @@ $(function() {
 	//Listen on typing
 	socket.on("typing", data => {
 		feedback.html("<p class='show'><i>" + data.username + " is typing a message..." + "</i></p>");
-    console.log(feedback.html);
     setTimeout(() => {
       feedback.html("");
     }, 3000);
