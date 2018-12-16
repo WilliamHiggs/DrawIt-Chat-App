@@ -144,12 +144,18 @@ p.message {
   background-color: #ffebde;
 }
 
-img.image {
+p.image_message {
   margin: 0px;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   font-size: 2vh;
   font-family: "Roboto", sans-serif;
+  padding: 1vh;
+}
+
+img.image {
+  width: 200px;
+  height: 200px;
   padding: 1vh;
 }
 

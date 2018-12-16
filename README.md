@@ -7,10 +7,10 @@
 - random username button
 
 ### Features I'd like to build:
+- local storage for when a user leaves the tab
 - picture rating
 - list of users in room
 - emojis
-- "enter" key press to send
 -----
 
 ### Tools:

@@ -1,7 +1,7 @@
 
 $(function() {
 
-	var socket = io.connect("http://localhost:3000");
+	//var socket = io.connect("http://localhost:3000");
 
 	var message = $("#message");
 	var username = $("#username");
@@ -39,7 +39,8 @@ $(function() {
       feedback.html("");
       message.val("");
       chatroom.append(
-        "<p class='message'>" + data.score + "★ " + data.username + ": " + data.message + "</p>"
+        "<p class='message'>" + data.score + "★ " +
+        data.username + ": " + data.message + "</p>"
       );
       scrollToBottom(chatroom[0]);
     }
@@ -48,10 +49,11 @@ $(function() {
   socket.on("new_image", data => {
     if (data.source) {
       feedback.html("");
-      message.val("");
       chatroom.append(
-        "<div>" + data.score + "★ " + data.username + ": " +
-        "<br><img class='image' alt='Embedded Image' src='"+ data.source +"'></img></div>"
+        "<div><p class='image_message'>" + data.score + "★ " +
+        data.username + ": " + "</p>" +
+        "<br><img class='image' alt='Embedded Image' src='"+
+        data.source +"'></img></div>"
       );
       scrollToBottom(chatroom[0]);
     }
@@ -59,8 +61,12 @@ $(function() {
 
 	//Emit a username
 	send_username.click(() => {
-    socket.emit("amend_username", {username: username.val()});
-		socket.emit("change_username", {username: username.val()});
+    socket.emit("amend_username", {
+      username: username.val()
+    });
+		socket.emit("change_username", {
+      username: username.val()
+    });
 	});
 
 	//Emit typing
@@ -70,92 +76,27 @@ $(function() {
 
 	//Listen on typing
 	socket.on("typing", data => {
-		feedback.html("<p class='show'><i>" + data.username + " is typing a message..." + "</i></p>");
+		feedback.html(
+      "<p class='show'><i>" + data.username +
+      " is typing a message..." + "</i></p>"
+    );
     setTimeout(() => {
       feedback.html("");
     }, 3000);
 	});
 
   socket.on("amend_username", data => {
-    username.html("<h4 id='username'>" + data.score + "★ " + data.username + "</h4>");
+    username.html(
+      "<h4 id='username'>" + data.score + "★ " + data.username + "</h4>"
+    );
   });
 
   socket.on("user_disconnect", data => {
-    feedback.html("<p class='show'><i>" + data.username + " left the chat" + "</i></p>");
+    feedback.html(
+      "<p class='show'><i>" + data.username + " left the chat" + "</i></p>"
+    );
     setTimeout(() => {
       feedback.html("");
     }, 3000);
   });
-
-  // buttons and inputs for drawing modal
-  var modalBtn = document.getElementById("modalBtn");
-  var closeModal = document.getElementById("closeCanvas");
-  var modal = document.getElementById("openCanvas");
-  var clear = document.getElementById("clear-area");
-  var send = document.getElementById("send-img");
-  var canvas = document.getElementById("myCanvas");
-  var cDiv = document.getElementById("canvas-div");
-  var ctx = canvas.getContext("2d");
-
-  function init() {
-
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
-
-    function draw(e) {
-      if (!isDrawing) return;
-      let penColor = document.getElementById("penColor").value;
-      let penWidth = document.getElementById("penWidth").value;
-      ctx.lineJoin = "round";
-      ctx.lineCap = "round";
-      ctx.lineWidth = penWidth;
-      ctx.strokeStyle = penColor;
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.stroke();
-      [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
-
-    canvas.addEventListener("mousedown", e => {
-      isDrawing = true;
-      [lastX, lastY] = [e.offsetX, e.offsetY];
-    });
-
-    canvas.addEventListener("mousemove", draw);
-    canvas.addEventListener("mouseup", () => isDrawing = false);
-    canvas.addEventListener("mouseout", () => isDrawing = false);
-  }
-
-  modalBtn.addEventListener("click", function() {
-    modal.style.display = "block";
-  });
-
-  closeModal.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
-
-  function clearCanvas() {
-    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  clear.addEventListener("click", function() {
-    var exit = confirm("Abandon your masterpiece?");
-    if (exit) {
-      clearCanvas();
-    }
-  });
-
-  send.addEventListener("click", function(event) {
-
-    let dataUrl = canvas.toDataURL();
-    socket.emit("new_image", {source: dataUrl});
-
-    modal.style.display = "none";
-    clearCanvas();
-  });
-
-  init();
-
 });

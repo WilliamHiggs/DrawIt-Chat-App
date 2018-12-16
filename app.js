@@ -22,18 +22,28 @@ const io = require("socket.io")(server);
 io.on("connection", socket => {
 
 	//default username
-	socket.username = "anon";
+	socket.username = generator.randomUserName();
 	socket.score = 0;
-	socket.emit("amend_username", {username: socket.username, score: socket.score});
+	socket.emit("amend_username", {
+		username: socket.username,
+		score: socket.score
+	});
 
   socket.on("change_username", data => {
 		data.username = generator.randomUserName();
     socket.username = data.username;
-		socket.emit("amend_username", {username: socket.username, score: socket.score});
+		socket.emit("amend_username", {
+			username: socket.username,
+			score: socket.score
+		});
   });
 
   socket.on("new_message", data => {
-    io.sockets.emit("new_message", {message: data.message, username: socket.username, score: socket.score});
+    io.sockets.emit("new_message", {
+			message: data.message,
+			username: socket.username,
+			score: socket.score
+		});
   });
 
 	socket.on("new_image", data => {
@@ -48,10 +58,14 @@ io.on("connection", socket => {
 	});
 
   socket.on("typing", data => {
-    socket.broadcast.emit("typing", {username: socket.username});
+    socket.broadcast.emit("typing", {
+			username: socket.username
+		});
   });
 
 	socket.on("disconnect", data => {
-    socket.broadcast.emit("user_disconnect", {username: socket.username});
+    socket.broadcast.emit("user_disconnect", {
+			username: socket.username
+		});
 	});
 });
