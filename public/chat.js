@@ -39,9 +39,9 @@ $(function() {
       feedback.html("");
       message.val("");
       chatroom.append(
-        "<p class='message'>" + data.score + "★ " +
-        data.username + ": " + data.message + "</p>"
-      );
+				$(`<p class='message'></p>`)
+			  .text(`${data.score} ★ ${data.username} : ${data.message}`)
+			);
       scrollToBottom(chatroom[0]);
     }
 	});
@@ -50,10 +50,10 @@ $(function() {
     if (data.source) {
       feedback.html("");
       chatroom.append(
-        "<div><p class='image_message'>" + data.score + "★ " +
-        data.username + ": " + "</p>" +
-        "<br><img class='image' alt='Embedded Image' src='"+
-        data.source +"'></img></div>"
+        $(`<p class='image_message'></p><br>`)
+				.text(`${data.score} ★ ${data.username} :`),
+				$(`<img class='image' alt='Embedded Image' src=""></img>`)
+				.attr("src", data.source)
       );
       scrollToBottom(chatroom[0]);
     }
@@ -77,8 +77,9 @@ $(function() {
 	//Listen on typing
 	socket.on("typing", data => {
 		feedback.html(
-      "<p class='show'><i>" + data.username +
-      " is typing a message..." + "</i></p>"
+      $(`<p class='show'></p>`)
+			.html($(`<i></i>`)
+			.text(`${data.username} is typing a message...`))
     );
     setTimeout(() => {
       feedback.html("");
@@ -87,13 +88,16 @@ $(function() {
 
   socket.on("amend_username", data => {
     username.html(
-      "<h4 id='username'>" + data.score + "★ " + data.username + "</h4>"
+      $(`<h4 id='username'></h4>`)
+			.text(`${data.score} ★ ${data.username}`)
     );
   });
 
   socket.on("user_disconnect", data => {
     feedback.html(
-      "<p class='show'><i>" + data.username + " left the chat" + "</i></p>"
+      $(`<p class='show'></p>`)
+			.html($(`<i></i>`)
+		  .text(`${data.username} left the chat`))
     );
     setTimeout(() => {
       feedback.html("");
