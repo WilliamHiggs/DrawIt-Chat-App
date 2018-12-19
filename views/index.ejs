@@ -16,8 +16,8 @@
     <section>
       <section id="feedback"></section>
       <div id="change_username">
-	      <h4 id="username" type="text"></h4>
-	      <button id="send_username" type="button">Change username</button>
+        <h4 id="username" type="text"></h4>
+        <button id="send_username" type="button">Change username</button>
       </div>
     </section>
 
@@ -60,7 +60,9 @@
        </div>
     </section>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script> const socket = io.connect("http://localhost:3000"); </script>
+    <script>
+      const socket = io.connect("http://localhost:3000");
+    </script>
     <script src="chat.js"></script>
     <script type="text/javascript" src="./modal.js"></script>
   </body>

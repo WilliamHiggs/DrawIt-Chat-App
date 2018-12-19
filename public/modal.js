@@ -1,7 +1,5 @@
 window.onload = function() {
 
-  //var socket = io.connect("http://localhost:3000");
-
   var modalBtn = document.getElementById("modalBtn");
   var closeModal = document.getElementById("closeCanvas");
   var modal = document.getElementById("openCanvas");
