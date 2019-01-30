@@ -1,19 +1,19 @@
 window.onload = function() {
 
-  var modalBtn = document.getElementById("modalBtn");
-  var closeModal = document.getElementById("closeCanvas");
-  var modal = document.getElementById("openCanvas");
-  var clear = document.getElementById("clear-area");
-  var send = document.getElementById("send-img");
-  var canvas = document.getElementById("myCanvas");
-  var cDiv = document.getElementById("canvas-div");
-  var ctx = canvas.getContext("2d");
+  var modalBtn = document.getElementById("modalBtn"),
+      closeModal = document.getElementById("closeCanvas"),
+      modal = document.getElementById("openCanvas"),
+      clear = document.getElementById("clear-area"),
+      send = document.getElementById("send-img"),
+      canvas = document.getElementById("myCanvas"),
+      cDiv = document.getElementById("canvas-div");
+      ctx = canvas.getContext("2d");
 
   function init() {
 
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
+    let isDrawing = false,
+        lastX = 0,
+        lastY = 0;
 
     function draw(e) {
       if (!isDrawing) return;

@@ -11,7 +11,11 @@ $(function() {
   // Added autoscroll to bottom
   MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
   var observer = new MutationObserver(scrollToBottom);
-  var config = {childList: true, subtree: true, attributes: true};
+  var config = {
+    childList: true,
+    subtree: true,
+    attributes: true
+  };
   observer.observe(chatroom[0], config);
 
   function scrollToBottom(element) {

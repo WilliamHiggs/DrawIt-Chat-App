@@ -10,7 +10,7 @@ function randomWordSelect(wordList) {
 }
 
 function makeSentence(text) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 module.exports = {
